@@ -1,2 +1,2 @@
-# selenium_test
-Selenium usage for interview test. 
+# Selenium test
+Selenium usage for interview.
