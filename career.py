@@ -10,10 +10,3 @@ class Career:
     #To String
     def __str__(self):
         return self.name+","+self.code+","+self.faculty+","+self.link+"\n"
-
-    def compareTo(self, object):
-        if self.code == object.code:
-            return True
-        else:
-            return False
-

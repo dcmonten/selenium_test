@@ -5,6 +5,5 @@ class CareerPageLocators(object):
     PANEL = (By.CLASS_NAME,'panel')
     PANEL_HEADING = (By.CLASS_NAME,'panel-title')
     PANEL_BODY = (By.CLASS_NAME,'panel-body')
-    LIST = (By.TAG_NAME,'ul')
     ITEM = (By.CSS_SELECTOR,'ul:last-of-type li')
     LINK = (By.TAG_NAME,"a")
