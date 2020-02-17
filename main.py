@@ -1,21 +1,28 @@
 from selenium import webdriver
 import chromedriver_binary
 import page
+import csv
+
 
 class ESPOLSearchCareer():
-    """A sample test class to show how page object works"""
     def search_careers(self):
-        """
-        """
-        #Load the main page. In this case the home page of Python.org.
+        """Retrieves the careers from the ESPOL page"""
+        #Load the main page.
         main_page = page.CareerPage(self.driver)
-        fcnames=main_page.faculty_names()
-        for name in fcnames:
-            if name.text == '':
-                continue
-            else:
-                eng_name=name.text.split(")\n")
-                print (eng_name[1])
+        #Get the careers
+        careers=main_page.careers()
+        #Putting the carrers in a csv file
+        with open('careers.csv', 'w', newline='\n') as outcsv:
+            writer = csv.writer(outcsv)
+            writer.writerow(["career_name_en",
+                             "career_code",
+                             "faculty_name",
+                             "link_to_career_curriculum"])
+            for career in careers:
+                writer.writerow([career.name,
+                                 career.code,
+                                 career.faculty,
+                                 career.link])
 
     def tearDown(self):
         self.driver.close()
@@ -29,4 +36,5 @@ class ESPOLSearchCareer():
 
 
 if __name__ == "__main__":
+    #Executing the career retriever
     ESPOLSearchCareer()
